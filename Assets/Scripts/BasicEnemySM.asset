@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8404f149d6fa261498aa6c20c1996687, type: 3}
+  m_Name: BasicEnemySM
+  m_EditorClassIdentifier: 
+  defaultState: Spawn
+  states:
+  - name: Spawn
+    parent: 
+    hasEnter: 1
+    hasDuring: 1
+    hasExit: 0
+    transitions:
+    - to: Combat
+      hasNotify: 0
+      exitTime: 0
+      mode: 0
+    hasChildren: 0
+    localDefault: 
+    position: {x: 304, y: 144}
+    size: {x: 192, y: 48}
+  - name: Combat
+    parent: 
+    hasEnter: 0
+    hasDuring: 1
+    hasExit: 0
+    transitions: []
+    hasChildren: 0
+    localDefault: 
+    position: {x: 304, y: 304}
+    size: {x: 192, y: 48}
+  baseClass: SBR.StateMachine
