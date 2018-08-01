@@ -8,8 +8,8 @@ public abstract class Pickup : MonoBehaviour {
     public float killZ = -20;
 
     private void OnTriggerEnter(Collider other) {
-        if (other.CompareTag("Player")) {
-            TakeEffect(other.GetComponent<PlayerShip>());
+        if (other.transform.root.CompareTag("Player")) {
+            TakeEffect(other.GetComponentInParent<PlayerShip>());
             Destroy(gameObject);
             sound?.Play(transform.position);
         }

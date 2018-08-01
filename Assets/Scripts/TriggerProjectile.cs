@@ -8,7 +8,12 @@ public class TriggerProjectile : Projectile {
         transform.position += velocity * Time.deltaTime;
     }
 
+    private void OnCollisionEnter(Collision collision) {
+        OnHitCollider(collision.collider, transform.position, velocity);
+    }
+
     private void OnTriggerEnter(Collider other) {
+        print("Trigger");
         OnHitCollider(other, transform.position, velocity);
     }
 }

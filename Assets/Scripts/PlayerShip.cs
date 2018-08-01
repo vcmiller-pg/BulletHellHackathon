@@ -23,7 +23,7 @@ public class PlayerShip : BasicMotor<FighterChannels> {
 
         health = GetComponent<Health>();
         hitInvulnTimer = new ExpirationTimer(hitInvuln);
-        collider = GetComponent<Collider>();
+        collider = GetComponentInChildren<Collider>();
 
         weapons = new List<ShipWeapon>(GetComponentsInChildren<ShipWeapon>());
         for (int i = 1; i < weapons.Count; i++) {

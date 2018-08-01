@@ -37,6 +37,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1177582072277370
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4901142310433654}
+  m_Layer: 10
+  m_Name: LGun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1460358151040484
 GameObject:
   m_ObjectHideFlags: 0
@@ -49,6 +64,21 @@ GameObject:
   - component: {fileID: 23369378030400866}
   m_Layer: 10
   m_Name: TurretBase (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1511378148763188
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4687387264244332}
+  m_Layer: 10
+  m_Name: RGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -164,6 +194,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4507945527462752}
+  - {fileID: 4901142310433654}
   m_Father: {fileID: 4610098543562342}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -218,7 +249,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1061115453743626}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 50}
+  m_LocalPosition: {x: -22.456707, y: -0.21033216, z: -8.946599}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4157583097559540}
@@ -226,6 +257,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!4 &4687387264244332
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1511378148763188}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4776305900865216}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4776305900865216
 Transform:
   m_ObjectHideFlags: 1
@@ -237,7 +281,21 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4172847766850298}
+  - {fileID: 4687387264244332}
   m_Father: {fileID: 4610098543562342}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4901142310433654
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1177582072277370}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4157583097559540}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23055117723599046
@@ -573,13 +631,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
-  impactSound:
-    clip: {fileID: 8300000, guid: 191dffc3bf44750418c3bfc466934caf, type: 3}
-    volume: 1
-    pitch: 2
-    spaital: 0
-    loop: 0
-    playCooldown: 0
   health: {fileID: 0}
 --- !u!114 &114493031198248856
 MonoBehaviour:
@@ -632,10 +683,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 114578397476529566, guid: 843b215f841f3be40918f29f65e70462,
     type: 2}
+  startCooldown: 0
   fireRate: 5
+  magazineSize: 0
+  magazineReload: 0
   guns:
-  - {fileID: 4157583097559540}
-  - {fileID: 4776305900865216}
+  - {fileID: 4901142310433654}
+  - {fileID: 4687387264244332}
   shootSound:
     clip: {fileID: 8300000, guid: bd02b79e058223348b1a69b5a996253a, type: 3}
     volume: 0.7
@@ -645,6 +699,8 @@ MonoBehaviour:
     playCooldown: 0
   target: {fileID: 0}
   parentProjectiles: 0
+  followRoll: 1
+  gunMode: 0
 --- !u!114 &114873855442121528
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -692,3 +748,5 @@ MonoBehaviour:
   - {fileID: 0}
   cooldown: 2
   mode: 2
+  atSelfLocation: 0
+  parentToSelf: 0
