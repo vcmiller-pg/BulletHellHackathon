@@ -4,11 +4,17 @@ ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Turret
     400000: //RootNode
+    400002: Turret
     2100000: Material
     2300000: //RootNode
+    2300002: Turret
     3300000: //RootNode
+    3300002: Turret
     4300000: Cube
+    4300002: Carrier
+    4300004: Turret
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}

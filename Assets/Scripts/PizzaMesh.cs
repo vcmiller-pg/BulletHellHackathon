@@ -16,30 +16,23 @@ public class PizzaMesh : MonoBehaviour {
     private Vector3[] vertices;
     private Vector2[] uvs;
     private MeshFilter mf;
-    private MeshCollider mc;
 
 	// Use this for initialization
 	void Start () {
         mesh = new Mesh();
 
-        vertices = new Vector3[numPoints * 4];
-        uvs = new Vector2[numPoints * 4];
+        vertices = new Vector3[numPoints * 2];
+        uvs = new Vector2[numPoints * 2];
 
         mesh.vertices = vertices;
         mesh.uv = uvs;
 
-        int[] indices = new int[numPoints * 8];
+        int[] indices = new int[numPoints * 4];
         for (int i = 0; i < numPoints - 1; i++) {
             indices[i * 4 + 0] = i * 2 + 0;
             indices[i * 4 + 1] = i * 2 + 1;
             indices[i * 4 + 2] = i * 2 + 3;
             indices[i * 4 + 3] = i * 2 + 2;
-
-
-            indices[i * 4 + 0 + numPoints * 4] = i * 2 + 1 + numPoints * 2;
-            indices[i * 4 + 1 + numPoints * 4] = i * 2 + 0 + numPoints * 2;
-            indices[i * 4 + 2 + numPoints * 4] = i * 2 + 2 + numPoints * 2;
-            indices[i * 4 + 3 + numPoints * 4] = i * 2 + 3 + numPoints * 2;
         }
 
         mesh.vertices = vertices;
@@ -47,8 +40,17 @@ public class PizzaMesh : MonoBehaviour {
         mesh.SetIndices(indices, MeshTopology.Quads, 0);
 
         mf = GetComponent<MeshFilter>();
-        mc = GetComponent<MeshCollider>();
+        mf.sharedMesh = mesh;
 	}
+
+    public IEnumerable<Vector3> corners {
+        get {
+            yield return transform.TransformPoint(vertices[0]);
+            yield return transform.TransformPoint(vertices[1]);
+            yield return transform.TransformPoint(vertices[vertices.Length - 1]);
+            yield return transform.TransformPoint(vertices[vertices.Length - 2]);
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -72,16 +74,10 @@ public class PizzaMesh : MonoBehaviour {
             float heExpand = Mathf.Max(size - splitSize, 0);
             vertices[i * 2] = v * heExpand;
             uvs[i * 2] = -uvDir * size + uv * heExpand;
-
-            vertices[i * 2 + 0 + numPoints * 2] = vertices[i * 2 + 0] - Vector3.up;
-            vertices[i * 2 + 1 + numPoints * 2] = vertices[i * 2 + 1] - Vector3.up;
         }
 
         mesh.vertices = vertices;
         mesh.uv = uvs;
         mesh.RecalculateBounds();
-
-        mf.sharedMesh = mesh;
-        mc.sharedMesh = mesh;
 	}
 }

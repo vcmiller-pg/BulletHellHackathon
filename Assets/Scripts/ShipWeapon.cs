@@ -1,4 +1,5 @@
 ﻿using SBR;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ShipWeapon : BasicMotor<FighterChannels> {
@@ -16,9 +17,18 @@ public class ShipWeapon : BasicMotor<FighterChannels> {
     public bool parentProjectiles = false;
     public bool followRoll = true;
     public SpawnMode gunMode = SpawnMode.All;
+    public bool aimAtTarget;
 
+    private Dictionary<Transform, Quaternion> startRotations;
     private int currentGun;
-    
+
+    private void Awake() {
+        startRotations = new Dictionary<Transform, Quaternion>();
+        foreach (var gun in guns) {
+            startRotations[gun] = gun.localRotation;
+        }
+    }
+
     protected override void Start () {
         base.Start();
 
@@ -61,6 +71,16 @@ public class ShipWeapon : BasicMotor<FighterChannels> {
 
         if (transform.root.CompareTag("Player")) {
             GameStateManager.inst.shotsTaken++;
+        }
+
+        if (aimAtTarget) {
+            if (target) {
+                Vector3 v = target.transform.position - gun.position;
+                v.y = 0;
+                gun.rotation = Quaternion.LookRotation(v, Vector3.up);
+            } else {
+                gun.localRotation = startRotations[gun];
+            }
         }
     }
 

@@ -6,18 +6,24 @@ ModelImporter:
     100000: Cube_002
     100002: Cube_003
     100004: //RootNode
+    100006: Turret
     400000: Cube_002
     400002: Cube_003
     400004: //RootNode
+    400006: Turret
     2100000: Material
     2300000: Cube_002
     2300002: Cube_003
     2300004: //RootNode
+    2300006: Turret
     3300000: Cube_002
     3300002: Cube_003
     3300004: //RootNode
+    3300006: Turret
     4300000: Cube_003
     4300002: Cube_002
+    4300004: PizzaShip
+    4300006: Turret
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}

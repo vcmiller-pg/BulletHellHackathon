@@ -13,7 +13,6 @@ public class TriggerProjectile : Projectile {
     }
 
     private void OnTriggerEnter(Collider other) {
-        print("Trigger");
         OnHitCollider(other, transform.position, velocity);
     }
 }

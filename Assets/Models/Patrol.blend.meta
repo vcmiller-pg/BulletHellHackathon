@@ -7,23 +7,29 @@ ModelImporter:
     100002: TurretBarrels
     100004: TurretBase
     100006: TurretPitch
+    100008: Turret
     400000: //RootNode
     400002: TurretBarrels
     400004: TurretBase
     400006: TurretPitch
+    400008: Turret
     2100000: Chassis
+    2100002: Material
     2300000: //RootNode
     2300002: TurretBarrels
     2300004: TurretBase
     2300006: TurretPitch
+    2300008: Turret
     3300000: //RootNode
     3300002: TurretBarrels
     3300004: TurretBase
     3300006: TurretPitch
+    3300008: Turret
     4300000: Patrol
     4300002: TurretBase
     4300004: TurretPitch
     4300006: TurretBarrels
+    4300008: Turret
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}

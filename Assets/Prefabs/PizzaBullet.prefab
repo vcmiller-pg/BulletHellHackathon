@@ -139,7 +139,7 @@ MonoBehaviour:
     loop: 0
     playCooldown: 0
   splitTime: 4
-  subProjectile: {fileID: 114697354053766788, guid: 3fcfbdd44bdc6584d8199b794b1d3812,
+  subProjectile: {fileID: 114893045201725128, guid: 3fcfbdd44bdc6584d8199b794b1d3812,
     type: 2}
   spawnCount: 1
   startAngle: 0

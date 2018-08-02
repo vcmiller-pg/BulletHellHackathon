@@ -29,6 +29,10 @@ public class FighterMotor : BasicMotor<FighterChannels> {
     }
 
     public override void TakeInput() {
+        if (channels == null) {
+            return;
+        }
+
         Vector3 move = channels.movement;
         velocity = Vector3.MoveTowards(velocity, move * maxSpeed, Time.deltaTime * acceleration);
         Vector3 e = transform.eulerAngles;
