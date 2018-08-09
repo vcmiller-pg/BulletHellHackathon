@@ -6,7 +6,6 @@ using SBR;
 
 public class PlayerShip : BasicMotor<FighterChannels> {
     public GameObject explosionPrefab;
-    public Health health;
     public float hitInvuln = 0.5f;
     public AudioInfo impactSound;
     public AudioInfo deathSound;
@@ -20,8 +19,7 @@ public class PlayerShip : BasicMotor<FighterChannels> {
 
     protected override void Start() {
         base.Start();
-
-        health = GetComponent<Health>();
+        
         hitInvulnTimer = new ExpirationTimer(hitInvuln);
         collider = GetComponentInChildren<Collider>();
 
@@ -84,8 +82,8 @@ public class PlayerShip : BasicMotor<FighterChannels> {
         var enemy = other.GetComponent<EnemyShip>();
 
         if (enemy) {
-            enemy.health.Damage(damageDealtOnHit);
-            health.Damage(damageTakenOnHit);
+            enemy.Damage(damageDealtOnHit);
+            this.Damage(damageTakenOnHit);
         }
     }
 }

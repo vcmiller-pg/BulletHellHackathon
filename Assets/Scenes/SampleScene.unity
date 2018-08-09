@@ -8330,6 +8330,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114885359086024200, guid: 2d97ab841eb2e2b4088c6ad06c3ef5e3,
+        type: 2}
+      propertyPath: hasDeathSound
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114885359086024200, guid: 2d97ab841eb2e2b4088c6ad06c3ef5e3,
+        type: 2}
+      propertyPath: impactSound.randomized
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d97ab841eb2e2b4088c6ad06c3ef5e3, type: 2}
   m_IsPrefabParent: 0

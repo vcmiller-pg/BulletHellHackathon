@@ -5,11 +5,6 @@ using SBR;
 
 public class EnemyShip : MonoBehaviour {
     public GameObject explosionPrefab;
-    public Health health;
-
-    private void Start() {
-        health = GetComponent<Health>();
-    }
 
     private void OnDamage(Damage dmg) {
         GameStateManager.inst.shotsHit++;

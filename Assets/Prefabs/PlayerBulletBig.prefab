@@ -63,12 +63,15 @@ MonoBehaviour:
   destroyOnHit: 1
   impactPrefab: {fileID: 0}
   impactSound:
-    clip: {fileID: 8300000, guid: 5e8c0fa96714e58448cf9d7377539697, type: 3}
+    clip: {fileID: 8300000, guid: 31db0ea69267ed94a8b5da72e8918c64, type: 3}
+    clips: []
+    randomized: 0
     volume: 1
-    pitch: 1
+    pitch: 2
     spaital: 0
     loop: 0
-    playCooldown: 0
+    playCooldown: 0.05
+    cooldownId: enemyHit
   hitMask:
     serializedVersion: 2
     m_Bits: 1024

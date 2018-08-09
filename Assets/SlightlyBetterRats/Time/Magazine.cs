@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SBR.Editor {
+namespace SBR {
     public class Magazine {
         public int capacity { get; set; }
         public int remaining { get; set; }

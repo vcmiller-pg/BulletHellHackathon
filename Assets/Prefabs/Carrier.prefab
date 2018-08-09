@@ -216,7 +216,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 1078694400030560, guid: 461a7b5da47ea8042a2d92b82d6cd872,
     type: 2}
-  health: {fileID: 0}
 --- !u!114 &114176483234372098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -251,11 +250,14 @@ MonoBehaviour:
   - {fileID: 4186025375860108}
   shootSound:
     clip: {fileID: 8300000, guid: 1aa7a7bf4a0c5dc4ab3745e0c335d2b3, type: 3}
+    clips: []
+    randomized: 0
     volume: 1
     pitch: 1
     spaital: 0
     loop: 0
     playCooldown: 0
+    cooldownId: 
   target: {fileID: 0}
   parentProjectiles: 1
   followRoll: 1
