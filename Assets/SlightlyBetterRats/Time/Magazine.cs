@@ -27,6 +27,7 @@ namespace SBR {
         public bool Use() {
             if (reloading && reloadTimer.expired) {
                 remaining = capacity;
+                reloading = false;
             }
 
             if (remaining > 0) {

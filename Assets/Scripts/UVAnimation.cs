@@ -15,7 +15,7 @@ public class UVAnimation : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        material = GetComponent<MeshRenderer>().material;
+        material = GetComponent<Renderer>().material;
         if (framerate > 0 && textures?.Length > 1) {
             changeTimer = new CooldownTimer(1.0f / framerate);
         }

@@ -197,6 +197,8 @@ namespace SBR {
                 }
             }
         }
+
+        public float timeSinceStateChange => Time.time - rootMachine.activeLeaf.enterTime;
         
         protected State GetState(string name) {
             foreach (var s in allStates) {

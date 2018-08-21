@@ -79,7 +79,7 @@ public class PlayerShip : BasicMotor<FighterChannels> {
     }
 
     private void OnTriggerEnter(Collider other) {
-        var enemy = other.GetComponent<EnemyShip>();
+        var enemy = other.GetComponentInParent<EnemyShip>();
 
         if (enemy) {
             enemy.Damage(damageDealtOnHit);

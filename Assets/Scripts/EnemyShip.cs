@@ -13,6 +13,9 @@ public class EnemyShip : MonoBehaviour {
     private void OnZeroHealth() {
         Destroy(gameObject);
         GameStateManager.inst.enemiesDestroyed++;
-        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+
+        if (explosionPrefab) {
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        }
     }
 }

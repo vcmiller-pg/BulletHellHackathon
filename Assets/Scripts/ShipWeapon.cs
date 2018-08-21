@@ -40,7 +40,7 @@ public class ShipWeapon : BasicMotor<FighterChannels> {
     }
 
     public override void TakeInput() {
-        if (channels.attack1 && shootTimer.canUse && (magazine?.Use() != false)) {
+        if (channels != null && channels.attack1 && shootTimer.canUse && (magazine?.Use() != false)) {
             shootTimer.Use();
             shootSound?.Play(transform.position);
 
