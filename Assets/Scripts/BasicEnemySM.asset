@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -21,8 +22,10 @@ MonoBehaviour:
     transitions:
     - to: Combat
       hasNotify: 0
-      exitTime: 0
+      cooldown: 0
       mode: 0
+      exitTime: 0
+      message: Message
     hasChildren: 0
     localDefault: 
     position: {x: 304, y: 144}
@@ -37,4 +40,4 @@ MonoBehaviour:
     localDefault: 
     position: {x: 304, y: 304}
     size: {x: 192, y: 48}
-  baseClass: SBR.StateMachine
+  baseClass: (none)

@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SBR;
 
 public abstract class Pickup : MonoBehaviour {
-    public AudioInfo sound;
+    public AudioParameters sound;
     public Vector3 velocity;
     public float killZ = -20;
 
@@ -11,7 +12,7 @@ public abstract class Pickup : MonoBehaviour {
         if (other.transform.root.CompareTag("Player")) {
             TakeEffect(other.GetComponentInParent<PlayerShip>());
             Destroy(gameObject);
-            sound?.Play(transform.position);
+            sound?.PlayAtPoint(transform.position);
         }
     }
 

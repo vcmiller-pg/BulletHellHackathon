@@ -1,14 +1,15 @@
 using UnityEngine;
 using SBR;
 using System.Collections.Generic;
+using SBR.StateMachines;
 
 #pragma warning disable 649
-public abstract class BasicEnemySM : SBR.StateMachine {
+public abstract class BasicEnemySM : StateMachine<FighterChannels> {
     public enum StateID {
         Spawn, Combat
     }
 
-    new private class State : StateMachine.State {
+    private class State : SBR.StateMachines.State {
         public StateID id;
 
         public override string ToString() {
@@ -42,7 +43,7 @@ public abstract class BasicEnemySM : SBR.StateMachine {
             from = stateSpawn,
             to = stateCombat,
             exitTime = 0f,
-            mode = StateMachineDefinition.TransitionMode.ConditionOnly,
+            mode = StateMachineDefinition.TransitionMode.Condition,
             cond = TransitionCond_Spawn_Combat
         };
         stateSpawn.transitions.Add(transitionSpawnCombat);

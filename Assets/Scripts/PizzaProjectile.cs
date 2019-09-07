@@ -21,7 +21,7 @@ public class PizzaProjectile : Projectile {
 
         foreach (var mesh in meshes) {
             if (Intersects(mesh)) {
-                OnHitCollider(box, box.transform.position, transform.forward);
+                OnHitCollider(box, box.transform.position);
             }
         }
 	}

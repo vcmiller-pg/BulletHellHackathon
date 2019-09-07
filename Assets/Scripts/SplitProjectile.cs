@@ -8,7 +8,7 @@ public class SplitProjectile : TriggerProjectile {
     public Projectile subProjectile;
     public int spawnCount;
     public float startAngle;
-    public AudioInfo sound;
+    public AudioParameters sound;
     public bool startAngleRelative;
 
     private ExpirationTimer timer;
@@ -37,7 +37,7 @@ public class SplitProjectile : TriggerProjectile {
             for (int i = 0; i < spawnCount; i++) {
                 Quaternion rot = Quaternion.Euler(0, start + angleStep * i, 0);
                 Instantiate(subProjectile, transform.position, rot).Fire();
-                sound?.Play(transform.position);
+                if (sound) sound.PlayAtPoint(transform.position);
             }
             Destroy(gameObject);
         }

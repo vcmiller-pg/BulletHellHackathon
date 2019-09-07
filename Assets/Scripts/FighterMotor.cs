@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using SBR;
 
-public class FighterMotor : BasicMotor<FighterChannels> {
+public class FighterMotor : Motor<FighterChannels> {
     new public Rigidbody rigidbody { get; private set; }
 
     [HideInInspector]
@@ -22,17 +22,13 @@ public class FighterMotor : BasicMotor<FighterChannels> {
 
     public RotationMode rotationMode;
 
-    protected override void Start() {
-        base.Start();
+    protected override void Awake() {
+        base.Awake();
 
         rigidbody = GetComponent<Rigidbody>();
     }
 
-    public override void TakeInput() {
-        if (channels == null) {
-            return;
-        }
-
+    protected override void DoOutput(FighterChannels channels) {
         Vector3 move = channels.movement;
         velocity = Vector3.MoveTowards(velocity, move * maxSpeed, Time.deltaTime * acceleration);
         Vector3 e = transform.eulerAngles;

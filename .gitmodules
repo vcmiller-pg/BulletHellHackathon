@@ -1,0 +1,3 @@
+[submodule "Assets/SlightlyBetterRats"]
+	path = Assets/SlightlyBetterRats
+	url = https://github.com/vcmiller/SlightlyBetterRats.git

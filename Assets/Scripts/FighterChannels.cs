@@ -2,42 +2,37 @@ using UnityEngine;
 using SBR;
 
 public class FighterChannels : SBR.Channels {
-    public FighterChannels() {
-        RegisterInputChannel("movement", new Vector3(0, 0, 0), true);
-        RegisterInputChannel("attack1", false, false);
-        RegisterInputChannel("weaponSwitch", 0, true);
 
-    }
-    
-
+    private Vector3 _movement;
     public Vector3 movement {
-        get {
-            return GetInput<Vector3>("movement");
-        }
-
+        get { return _movement; }
         set {
-            SetVector("movement", value);
+            _movement = value;
         }
     }
 
+    private bool _attack1;
     public bool attack1 {
-        get {
-            return GetInput<bool>("attack1");
-        }
-
+        get { return _attack1; }
         set {
-            SetInput("attack1", value);
+            _attack1 = value;
         }
     }
 
+    private int _weaponSwitch;
     public int weaponSwitch {
-        get {
-            return GetInput<int>("weaponSwitch");
-        }
-
+        get { return _weaponSwitch; }
         set {
-            SetInt("weaponSwitch", value);
+            _weaponSwitch = value;
         }
     }
 
+
+    public override void ClearInput(bool force = false) {
+        base.ClearInput(force);
+        _movement = new Vector3(0f, 0f, 0f);
+        if (force) _attack1 = false;
+        _weaponSwitch = 0;
+
+    }
 }

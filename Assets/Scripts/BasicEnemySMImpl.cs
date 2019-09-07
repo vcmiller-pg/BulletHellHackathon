@@ -12,13 +12,11 @@ public class BasicEnemySMImpl : BasicEnemySM {
     private Vector3 startPos;
     new private FighterChannels channels;
 
-    public override void Initialize() {
-        base.Initialize();
+    protected override void Awake() {
+        base.Awake();
 
         channels = base.channels as FighterChannels;
-    }
 
-    void Awake() {
         Vector3 pos = transform.position;
         startPos = pos;
         pos.z = startZ;

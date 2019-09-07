@@ -1,14 +1,15 @@
 using UnityEngine;
 using SBR;
 using System.Collections.Generic;
+using SBR.StateMachines;
 
 #pragma warning disable 649
-public abstract class BossSM : SBR.StateMachine {
+public abstract class BossSM : StateMachine<FighterChannels> {
     public enum StateID {
         Spawn, AttackCycle, BeamAttack, ArmAttack, SpawnGuns, SpawnLasers
     }
 
-    new private class State : StateMachine.State {
+    private class State : SBR.StateMachines.State {
         public StateID id;
 
         public override string ToString() {
@@ -79,7 +80,7 @@ public abstract class BossSM : SBR.StateMachine {
             from = stateSpawn,
             to = stateAttackCycle,
             exitTime = 2f,
-            mode = StateMachineDefinition.TransitionMode.TimeOnly,
+            mode = StateMachineDefinition.TransitionMode.Time,
             cond = TransitionCond_Spawn_AttackCycle
         };
         stateSpawn.transitions.Add(transitionSpawnAttackCycle);
@@ -88,7 +89,7 @@ public abstract class BossSM : SBR.StateMachine {
             from = stateBeamAttack,
             to = stateSpawnLasers,
             exitTime = 4.5f,
-            mode = StateMachineDefinition.TransitionMode.TimeOnly,
+            mode = StateMachineDefinition.TransitionMode.Time,
             cond = TransitionCond_BeamAttack_SpawnLasers
         };
         stateBeamAttack.transitions.Add(transitionBeamAttackSpawnLasers);
@@ -97,7 +98,7 @@ public abstract class BossSM : SBR.StateMachine {
             from = stateArmAttack,
             to = stateBeamAttack,
             exitTime = 8f,
-            mode = StateMachineDefinition.TransitionMode.TimeOrCondition,
+            mode = StateMachineDefinition.TransitionMode.Condition,
             cond = TransitionCond_ArmAttack_BeamAttack
         };
         stateArmAttack.transitions.Add(transitionArmAttackBeamAttack);
@@ -106,7 +107,7 @@ public abstract class BossSM : SBR.StateMachine {
             from = stateSpawnGuns,
             to = stateArmAttack,
             exitTime = 15f,
-            mode = StateMachineDefinition.TransitionMode.TimeOnly,
+            mode = StateMachineDefinition.TransitionMode.Time,
             cond = TransitionCond_SpawnGuns_ArmAttack
         };
         stateSpawnGuns.transitions.Add(transitionSpawnGunsArmAttack);
@@ -115,7 +116,7 @@ public abstract class BossSM : SBR.StateMachine {
             from = stateSpawnLasers,
             to = stateSpawnGuns,
             exitTime = 5f,
-            mode = StateMachineDefinition.TransitionMode.TimeOnly,
+            mode = StateMachineDefinition.TransitionMode.Time,
             cond = TransitionCond_SpawnLasers_SpawnGuns
         };
         stateSpawnLasers.transitions.Add(transitionSpawnLasersSpawnGuns);

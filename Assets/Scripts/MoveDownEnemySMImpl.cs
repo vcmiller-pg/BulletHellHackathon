@@ -4,8 +4,8 @@ public class MoveDownEnemySMImpl : BasicEnemySM {
     public Vector3 movement;
     new private FighterChannels channels;
 
-    public override void Initialize() {
-        base.Initialize();
+    protected override void Awake() {
+        base.Awake();
 
         channels = base.channels as FighterChannels;
     }

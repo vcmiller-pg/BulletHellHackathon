@@ -9,10 +9,10 @@ public class TriggerProjectile : Projectile {
     }
 
     private void OnCollisionEnter(Collision collision) {
-        OnHitCollider(collision.collider, transform.position, velocity);
+        OnHitCollider(collision.collider, transform.position);
     }
 
     private void OnTriggerEnter(Collider other) {
-        OnHitCollider(other, transform.position, velocity);
+        OnHitCollider(other, transform.position);
     }
 }

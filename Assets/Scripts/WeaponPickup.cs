@@ -5,7 +5,7 @@ using UnityEngine;
 public class WeaponPickup : Pickup {
     public ShipWeapon weaponObject;
     public bool showMessage;
-    public string name;
+    new public string name;
 
     protected override void TakeEffect(PlayerShip ship) {
         ship.AddWeapon(weaponObject);

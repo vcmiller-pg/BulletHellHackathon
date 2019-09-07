@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipWeapon : BasicMotor<FighterChannels> {
+public class ShipWeapon : Motor<FighterChannels> {
     public CooldownTimer shootTimer { get; private set; }
     public Magazine magazine { get; private set; }
 
@@ -12,7 +12,7 @@ public class ShipWeapon : BasicMotor<FighterChannels> {
     public int magazineSize;
     public float magazineReload;
     public Transform[] guns;
-    public AudioInfo shootSound;
+    public AudioParameters shootSound;
     public GameObject target;
     public bool parentProjectiles = false;
     public bool followRoll = true;
@@ -22,16 +22,15 @@ public class ShipWeapon : BasicMotor<FighterChannels> {
     private Dictionary<Transform, Quaternion> startRotations;
     private int currentGun;
 
-    private void Awake() {
+    protected override void Awake() {
+        base.Awake();
         startRotations = new Dictionary<Transform, Quaternion>();
         foreach (var gun in guns) {
             startRotations[gun] = gun.localRotation;
         }
     }
 
-    protected override void Start () {
-        base.Start();
-
+    void Start () {
         shootTimer = new CooldownTimer(1.0f / fireRate, startCooldown);
 
         if (magazineReload > 0) {
@@ -39,10 +38,10 @@ public class ShipWeapon : BasicMotor<FighterChannels> {
         }
     }
 
-    public override void TakeInput() {
-        if (channels != null && channels.attack1 && shootTimer.canUse && (magazine?.Use() != false)) {
+    protected override void DoOutput(FighterChannels channels) {
+        if (channels.attack1 && shootTimer.canUse && (magazine?.Fire() != false)) {
             shootTimer.Use();
-            shootSound?.Play(transform.position);
+            shootSound?.PlayAtPoint(transform.position);
 
             if (gunMode == SpawnMode.All) {
                 for (int i = 0; i < guns.Length; i++) {

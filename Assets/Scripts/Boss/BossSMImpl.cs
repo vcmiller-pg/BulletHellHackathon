@@ -29,8 +29,8 @@ public class BossSMImpl : BossSM {
         }
     }
 
-    public override void Initialize() {
-        base.Initialize();
+    protected override void Awake() {
+        base.Awake();
 
         animator = GetComponent<Animator>();
         channels = base.channels as FighterChannels;

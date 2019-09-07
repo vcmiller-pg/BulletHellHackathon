@@ -5,7 +5,7 @@ public class ChargingProjectile : Projectile {
     public float delay;
     public Projectile subProjectile;
     public bool destroyAfterFiring = true;
-    public AudioInfo shootSound;
+    public AudioParameters shootSound;
     public bool parent = true;
     public bool fireAtTarget = true;
 
@@ -44,7 +44,7 @@ public class ChargingProjectile : Projectile {
                 proj.Fire();
             }
 
-            shootSound?.Play(transform.position);
+            shootSound?.PlayAtPoint(transform.position);
 
             if (destroyAfterFiring) {
                 Destroy(gameObject, linger);
