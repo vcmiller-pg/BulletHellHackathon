@@ -61,7 +61,8 @@ MonoBehaviour:
   - {fileID: 4346590003168874}
   - {fileID: 4420830629922272}
   shootSound:
-    clips: []
+    clips:
+    - {fileID: 8300000, guid: bd02b79e058223348b1a69b5a996253a, type: 3}
     volume: 0.1
     pitch: 1.5
     spaital: 0

@@ -20893,7 +20893,7 @@ MonoBehaviour:
     timeLimit: 0
   - spawnParent: {fileID: 1190143847}
     timeLimit: 0
-  currentWave: 8
+  currentWave: 0
 --- !u!4 &846060153
 Transform:
   m_ObjectHideFlags: 0

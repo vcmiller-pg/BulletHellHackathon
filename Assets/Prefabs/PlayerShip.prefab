@@ -150,7 +150,7 @@ MonoBehaviour:
     states: []
   velocity: {x: 0, y: 0, z: 0}
   maxSpeed: 75
-  acceleration: 750
+  acceleration: 2000
   rollAngle: 75
   rollSpeed: 360
   useBounds: 1
@@ -306,7 +306,6 @@ MonoBehaviour:
   states:
     states: []
   explosionPrefab: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
-  hitInvuln: 1
   impactSound:
     clips:
     - {fileID: 8300000, guid: decc91bd3f77db444930c9dd5d7023e9, type: 3}

@@ -155,13 +155,12 @@ MonoBehaviour:
   impactForce: 0
   triggerInteraction: 0
   hitsIfNotFired: 0
-  linger: 0
+  linger: 0.3
   gravity: 0
   destroyOnHit: 1
   impactPrefab: {fileID: 0}
   impactSound:
-    clips:
-    - {fileID: 0}
+    clips: []
     volume: 1
     pitch: 1
     spaital: 0
@@ -171,5 +170,5 @@ MonoBehaviour:
     cooldownId: 
   hitMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 512
   range: Infinity
