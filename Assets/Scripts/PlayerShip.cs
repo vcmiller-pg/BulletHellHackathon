@@ -14,6 +14,8 @@ public class PlayerShip : Motor<FighterChannels> {
     private List<ShipWeapon> weapons;
     private int curWeapon;
 
+    public int totalCoins { get; private set; }
+
     protected override void Awake() {
         base.Awake();
         
@@ -21,6 +23,8 @@ public class PlayerShip : Motor<FighterChannels> {
         for (int i = 1; i < weapons.Count; i++) {
             weapons[i].enabled = false;
         }
+
+        totalCoins = 0;
     }
 
     protected override void DoOutput(FighterChannels channels) {
@@ -73,5 +77,9 @@ public class PlayerShip : Motor<FighterChannels> {
             enemy.Damage(damageDealtOnHit);
             this.Damage(damageTakenOnHit);
         }
+    }
+
+    public void AddCoins(int coins) {
+        totalCoins += coins;
     }
 }
