@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using SBR.StateMachines;
 
 #pragma warning disable 649
-public abstract class BasicEnemySM : StateMachine<FighterChannels> {
+public abstract class BasicEnemySM<T> : StateMachine<T> where T : Channels, new() {
     public enum StateID {
         Spawn, Combat
     }

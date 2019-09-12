@@ -1,26 +1,23 @@
 using UnityEngine;
 
-public class BasicEnemySMImpl : BasicEnemySM {
+public class BasicEnemySMImpl : BasicEnemySM<FighterChannels> {
     public float startZ = 50;
     public float enterSpeed = 200;
-    public float strafeXMin;
-    public float strafeXMax;
     public bool strafe;
     public float zMove;
 
     public float strafeDir = 1;
     private Vector3 startPos;
-    new private FighterChannels channels;
+    private FighterMotor motor;
 
     protected override void Awake() {
         base.Awake();
-
-        channels = base.channels as FighterChannels;
 
         Vector3 pos = transform.position;
         startPos = pos;
         pos.z = startZ;
         transform.position = pos;
+        motor = GetComponent<FighterMotor>();
     }
 
     protected override void State_Spawn() {
@@ -33,9 +30,9 @@ public class BasicEnemySMImpl : BasicEnemySM {
         if (strafe) {
             channels.movement = Vector3.right * strafeDir;
 
-            if (transform.position.x < strafeXMin) {
+            if (transform.position.x < motor.movementBounds.min.x) {
                 strafeDir = 1;
-            } else if (transform.position.x > strafeXMax) {
+            } else if (transform.position.x > motor.movementBounds.max.x) {
                 strafeDir = -1;
             }
         }

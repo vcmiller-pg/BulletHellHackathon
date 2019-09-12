@@ -25,6 +25,11 @@ public class FighterMotor : Motor<FighterChannels> {
     protected override void Awake() {
         base.Awake();
 
+        GameBounds gb = FindObjectOfType<GameBounds>();
+        if (gb) {
+            movementBounds = gb.bounds;
+        }
+
         rigidbody = GetComponent<Rigidbody>();
     }
 

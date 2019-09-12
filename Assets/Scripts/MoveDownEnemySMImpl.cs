@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class MoveDownEnemySMImpl : BasicEnemySM {
+public class MoveDownEnemySMImpl : BasicEnemySM<FighterChannels> {
     public Vector3 movement;
-    new private FighterChannels channels;
+    private FighterMotor motor;
 
     protected override void Awake() {
         base.Awake();
 
-        channels = base.channels as FighterChannels;
+        motor = GetComponent<FighterMotor>();
     }
 
     protected override void State_Spawn() {
@@ -18,6 +18,11 @@ public class MoveDownEnemySMImpl : BasicEnemySM {
         channels.attack1 = true;
 
         channels.movement = movement;
+        if (transform.position.x < motor.movementBounds.min.x) {
+            movement.x = Mathf.Abs(movement.x);
+        } else if (transform.position.x > motor.movementBounds.max.x) {
+            movement.x = -Mathf.Abs(movement.x);
+        }
     }
 
     protected override bool TransitionCond_Spawn_Combat() => true;

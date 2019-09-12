@@ -13,7 +13,7 @@ public class ShipWeapon : Motor<FighterChannels> {
     public float magazineReload;
     public Transform[] guns;
     public AudioParameters shootSound;
-    public GameObject target;
+    public Tag targetTag;
     public bool parentProjectiles = false;
     public bool followRoll = true;
     public SpawnMode gunMode = SpawnMode.All;
@@ -21,6 +21,7 @@ public class ShipWeapon : Motor<FighterChannels> {
 
     private Dictionary<Transform, Quaternion> startRotations;
     private int currentGun;
+    private GameObject target;
 
     protected override void Awake() {
         base.Awake();
@@ -35,6 +36,10 @@ public class ShipWeapon : Motor<FighterChannels> {
 
         if (magazineReload > 0) {
             magazine = new Magazine(magazineSize, magazineReload);
+        }
+
+        if (targetTag != 0) {
+            target = Tags.FindGameObjectWithTag(targetTag);
         }
     }
 

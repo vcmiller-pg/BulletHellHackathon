@@ -35,6 +35,8 @@ public class SpawnContinuously : MonoBehaviour {
 	}
 
     void SpawnTemplate(int index) {
+        if (templates == null || index >= templates.Length || templates[index] == null) return;
+
         GameObject obj;
         if (atSelfLocation) {
             obj = Instantiate(templates[index], transform.position, Quaternion.identity);

@@ -265,7 +265,7 @@ MonoBehaviour:
     outputGroup: {fileID: 0}
     playCooldown: 0
     cooldownId: 
-  target: {fileID: 0}
+  targetTag: 32
   parentProjectiles: 1
   followRoll: 1
   gunMode: 0

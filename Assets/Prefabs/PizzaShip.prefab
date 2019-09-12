@@ -162,8 +162,6 @@ MonoBehaviour:
     states: []
   startZ: 100
   enterSpeed: 100
-  strafeXMin: 0
-  strafeXMax: 0
   strafe: 0
   zMove: 0
   strafeDir: 1
@@ -230,7 +228,7 @@ MonoBehaviour:
     outputGroup: {fileID: 0}
     playCooldown: 0
     cooldownId: 
-  target: {fileID: 0}
+  targetTag: 0
   parentProjectiles: 0
   followRoll: 1
   gunMode: 1
@@ -267,7 +265,7 @@ MonoBehaviour:
     outputGroup: {fileID: 0}
     playCooldown: 0
     cooldownId: 
-  target: {fileID: 0}
+  targetTag: 0
   parentProjectiles: 0
   followRoll: 1
   gunMode: 0
@@ -305,7 +303,7 @@ MonoBehaviour:
     outputGroup: {fileID: 0}
     playCooldown: 0
     cooldownId: 
-  target: {fileID: 0}
+  targetTag: 32
   parentProjectiles: 0
   followRoll: 1
   gunMode: 2

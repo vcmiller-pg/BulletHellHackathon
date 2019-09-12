@@ -133,8 +133,6 @@ MonoBehaviour:
     states: []
   startZ: 100
   enterSpeed: 50
-  strafeXMin: 0
-  strafeXMax: 0
   strafe: 0
   zMove: 0
   strafeDir: 1
@@ -180,7 +178,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 114578397476529566, guid: 843b215f841f3be40918f29f65e70462,
     type: 3}
   startCooldown: 0
-  fireRate: 5
+  fireRate: 3
   magazineSize: 0
   magazineReload: 0
   guns:
@@ -196,7 +194,7 @@ MonoBehaviour:
     outputGroup: {fileID: 0}
     playCooldown: 0
     cooldownId: 
-  target: {fileID: 0}
+  targetTag: 32
   parentProjectiles: 0
   followRoll: 1
   gunMode: 0
