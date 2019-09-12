@@ -197,7 +197,7 @@ MonoBehaviour:
   targetTag: 32
   parentProjectiles: 0
   followRoll: 1
-  gunMode: 0
+  gunMode: 2
   aimAtTarget: 1
 --- !u!114 &114474316362868782
 MonoBehaviour:
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7560336690c93094d97b459fc78d488d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 2000
+  maxHealth: 1500
   hitInvuln: 0
   healthRegenRate: 0
   healthRegenDelay: 0
