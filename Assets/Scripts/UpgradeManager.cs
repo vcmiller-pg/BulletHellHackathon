@@ -1,54 +1,62 @@
 using UnityEngine;
 using System;
 using System.Collections;
+using SBR;
 
 public class UpgradeManager : MonoBehaviour
-{    
-    public static float currentAttackMultiplexer { get; private set; }
-	public static int upgradeCost = 200;
+{
+    public static float currentAttackMultiplier { get; private set; } = 1;
+    public static float currentHealthMultiplier { get; private set; } = 1;
+    public static int damageUpgradeCost => Mathf.RoundToInt(200 * currentAttackMultiplier);
+    public static int healthUpgradeCost => Mathf.RoundToInt(200 * currentHealthMultiplier);
 	public static float singleUpgradeAmount = 0.2f;
 
-	private static float maxAttackMultiplexer = 3.0f;	
+    private static float maxAttackMultiplier = 3.0f;
+    private static float maxHealthMultiplier = 3.0f;
 	private PlayerShip playerShip;
 
-
-	static UpgradeManager()
-	{
-		currentAttackMultiplexer = 1.0f;
-	}
 
     // Use this for initialization
     void Start()
     {
 		playerShip = UnityEngine.Object.FindObjectOfType<PlayerShip>();
-		UpdateAllWeaponsMultiplexers();
-		currentAttackMultiplexer = Math.Max(1, currentAttackMultiplexer);
+		ApplyAllMultipliers();
+		currentAttackMultiplier = Math.Max(1, currentAttackMultiplier);
 	}
 
-    public static void DoUpgrade()
+    public static void UpgradeAttack()
     {
-		currentAttackMultiplexer += singleUpgradeAmount;
-		MessageManager.inst.ShowMessage($"Attack multiplexer increased to {currentAttackMultiplexer}", 3.0f);
+		currentAttackMultiplier += singleUpgradeAmount;
 	}
 
-    void UpdateAllWeaponsMultiplexers() {
+    public static void UpgradeHealth() {
+        currentHealthMultiplier += singleUpgradeAmount;
+    }
+
+    void ApplyAllMultipliers() {
+        ApplyWeaponMultipliers();
+        playerShip.GetComponent<Health>().maxHealth *= maxHealthMultiplier;
+    }
+
+    void ApplyWeaponMultipliers() {
         foreach (ShipWeapon weapon in playerShip.weapons) {
-            weapon.damageMultiplier = currentAttackMultiplexer;
+            weapon.damageMultiplier = currentAttackMultiplier;
         }
     }
 
     void ResetUpgradeAmounts()
     {
-		currentAttackMultiplexer = 1.0f;
+		currentAttackMultiplier = 1.0f;
     }
 
 	public static bool IsUpgradeAffordable()
 	{
-		return PlayerShip.savedCoins >= upgradeCost && currentAttackMultiplexer < maxAttackMultiplexer;
+		return PlayerShip.savedCoins >= damageUpgradeCost && currentAttackMultiplier < maxAttackMultiplier;
 	}
 
     // Update is called once per frame
     void Update()
     {
+        ApplyWeaponMultipliers();
     }
 }

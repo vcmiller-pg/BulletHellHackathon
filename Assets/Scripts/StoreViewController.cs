@@ -6,10 +6,14 @@ using UnityEngine.SceneManagement;
 public class StoreViewController : MonoBehaviour
 {
     public Text currentCoinsAmountText;
-	public Text currentAttackMultiplexerText;
-	public Text nextLevelText;
-	public Text upgradeCostText;
-	private int upgradeCost = -1;
+
+	public Text currentAttackMultiplierText;
+	public Text nextAttackLevelText;
+	public Text attackUpgradeCostText;
+
+    public Text currentHealthMultiplierText;
+    public Text nextHealthLevelText;
+    public Text healthUpgradeCostText;
 
     // Use this for initialization
     void Start()
@@ -20,27 +24,36 @@ public class StoreViewController : MonoBehaviour
     void Update()
     {
 		currentCoinsAmountText.text = "Current Coins Amount: " + PlayerShip.savedCoins.ToString();
-		currentAttackMultiplexerText.text = "Current Attack Multiplexer: x" + UpgradeManager.currentAttackMultiplexer.ToString();
-		float nextLevel = UpgradeManager.currentAttackMultiplexer + UpgradeManager.singleUpgradeAmount;
-		nextLevelText.text = "Next Level: x" + nextLevel.ToString();
 
-		upgradeCost = UpgradeManager.upgradeCost;
-		upgradeCostText.text = "Upgrade Cost: " + UpgradeManager.upgradeCost.ToString();
+		currentAttackMultiplierText.text = "Current Attack Multiplier: x" + UpgradeManager.currentAttackMultiplier.ToString();
+		float nextLevel = UpgradeManager.currentAttackMultiplier + UpgradeManager.singleUpgradeAmount;
+		nextAttackLevelText.text = "Next Level: x" + nextLevel.ToString();
+        attackUpgradeCostText.text = "Upgrade Cost: " + UpgradeManager.damageUpgradeCost.ToString();
+
+        currentHealthMultiplierText.text = "Current Health Multiplier: x" + UpgradeManager.currentHealthMultiplier.ToString();
+        nextLevel = UpgradeManager.currentHealthMultiplier + UpgradeManager.singleUpgradeAmount;
+        nextHealthLevelText.text = "Next Level: x" + nextLevel.ToString();
+        attackUpgradeCostText.text = "Upgrade Cost: " + UpgradeManager.healthUpgradeCost.ToString();
     }
 
 	public void DidTapResume()
 	{
-		Debug.LogWarning("DidTapResume");
 		SceneManager.LoadScene("RandomSpawnScene");
 	}
 
 
-	public void DidTapUpgrade()
+	public void DidTapDamageUpgrade()
 	{
-		Debug.LogWarning("DidTapUpgrade");
 		if (UpgradeManager.IsUpgradeAffordable()) {
-			PlayerShip.SpendCoins(upgradeCost);
-			UpgradeManager.DoUpgrade();
+			PlayerShip.SpendCoins(UpgradeManager.damageUpgradeCost);
+			UpgradeManager.UpgradeAttack();
 		}				
 	}
+
+    public void DidTapHealthUpgrade() {
+        if (PlayerShip.savedCoins >= UpgradeManager.healthUpgradeCost) {
+            PlayerShip.SpendCoins(UpgradeManager.healthUpgradeCost);
+            UpgradeManager.UpgradeHealth();
+        }
+    }
 }
