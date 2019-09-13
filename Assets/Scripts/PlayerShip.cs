@@ -6,6 +6,8 @@ using SBR;
 
 public class PlayerShip : MonoBehaviour {
     public GameObject explosionPrefab;
+    public GameObject impactVfx;
+    public Transform impactSites;
     public AudioParameters impactSound;
     public AudioParameters deathSound;
     public float damageDealtOnHit = 100;
@@ -38,6 +40,13 @@ public class PlayerShip : MonoBehaviour {
     private void OnDamage(Damage dmg) {
         impactSound?.PlayAtPoint(transform.position);
         GameStateManager.inst.damageTaken += dmg.amount;
+
+        if (impactVfx && impactSites?.childCount > 0)
+        {
+            var gameObj = Instantiate(impactVfx, transform);
+            var ind = Random.Range(0, impactSites.childCount);
+            gameObj.transform.localPosition = impactSites.GetChild(ind).localPosition;
+        }
     }
 
     private void OnZeroHealth() {
