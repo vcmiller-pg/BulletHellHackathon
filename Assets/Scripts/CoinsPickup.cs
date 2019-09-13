@@ -13,6 +13,5 @@ public class CoinsPickup : Pickup {
 
     protected override void TakeEffect(PlayerShip ship) {
         ship.AddCoins(singleCoinValue);
-        MessageManager.inst.ShowMessage("Acquired <color=green>Coin</color>", 3.0f);
     }
 }

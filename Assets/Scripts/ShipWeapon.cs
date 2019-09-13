@@ -18,6 +18,7 @@ public class ShipWeapon : Motor<FighterChannels> {
     public bool followRoll = true;
     public SpawnMode gunMode = SpawnMode.All;
     public bool aimAtTarget;
+    public float damageMultiplier = 1.0f;
 
     private Dictionary<Transform, Quaternion> startRotations;
     private int currentGun;
@@ -64,6 +65,7 @@ public class ShipWeapon : Motor<FighterChannels> {
     private void FireGun(int index) {
         var gun = guns[index];
         var bullet = Instantiate(bulletPrefab, gun.position, gun.rotation);
+        bullet.damage *= damageMultiplier;
         if (parentProjectiles) {
             bullet.transform.parent = transform;
         }

@@ -6653,6 +6653,7 @@ GameObject:
   - component: {fileID: 282840814}
   - component: {fileID: 282840813}
   - component: {fileID: 282840811}
+  - component: {fileID: 282840812}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -6668,6 +6669,18 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282840810}
   m_Enabled: 1
+--- !u!114 &282840812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282840810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2301a5be86c817e4fb783a0f26e3ac72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!20 &282840813
 Camera:
   m_ObjectHideFlags: 0
@@ -13034,8 +13047,6 @@ MonoBehaviour:
     states: []
   startZ: 100
   enterSpeed: 100
-  strafeXMin: 0
-  strafeXMax: 0
   strafe: 0
   zMove: 0
   strafeDir: 1
@@ -13073,11 +13084,12 @@ MonoBehaviour:
     outputGroup: {fileID: 0}
     playCooldown: 0.1
     cooldownId: LightShot
-  target: {fileID: 0}
+  targetTag: 0
   parentProjectiles: 0
   followRoll: 1
   gunMode: 0
   aimAtTarget: 0
+  damageMultiplier: 1
 --- !u!114 &539374132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13791,6 +13803,15 @@ PrefabInstance:
     - target: {fileID: 1633744179759026, guid: 2d97ab841eb2e2b4088c6ad06c3ef5e3, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114554819106320138, guid: 2d97ab841eb2e2b4088c6ad06c3ef5e3,
+        type: 3}
+      propertyPath: initialViewTarget
+      value: 
+      objectReference: {fileID: 282840812}
+    - target: {fileID: 2028554251, guid: 2d97ab841eb2e2b4088c6ad06c3ef5e3, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d97ab841eb2e2b4088c6ad06c3ef5e3, type: 3}
@@ -24978,8 +24999,6 @@ MonoBehaviour:
     states: []
   startZ: 100
   enterSpeed: 100
-  strafeXMin: 0
-  strafeXMax: 0
   strafe: 0
   zMove: 0
   strafeDir: 1
@@ -25017,11 +25036,12 @@ MonoBehaviour:
     outputGroup: {fileID: 0}
     playCooldown: 0.1
     cooldownId: LightShot
-  target: {fileID: 0}
+  targetTag: 0
   parentProjectiles: 0
   followRoll: 1
   gunMode: 0
   aimAtTarget: 0
+  damageMultiplier: 1
 --- !u!136 &1044832711
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -30702,7 +30722,7 @@ Transform:
   - {fileID: 1168350995}
   - {fileID: 1081774694}
   m_Father: {fileID: 1363413247}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1276864370
 MonoBehaviour:
@@ -30738,11 +30758,12 @@ MonoBehaviour:
     outputGroup: {fileID: 0}
     playCooldown: 0.05
     cooldownId: 
-  target: {fileID: 0}
+  targetTag: 0
   parentProjectiles: 0
   followRoll: 0
   gunMode: 2
   aimAtTarget: 0
+  damageMultiplier: 1
 --- !u!1 &1305203112
 GameObject:
   m_ObjectHideFlags: 0
@@ -31172,6 +31193,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 628995820}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1363413239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363413238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4a134f52ae2d4866b754809c48a1568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackMultiplexer: 0
 --- !u!4 &1363413247 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4347091503774834, guid: 2d97ab841eb2e2b4088c6ad06c3ef5e3,
@@ -34701,6 +34735,36 @@ PrefabInstance:
     - target: {fileID: 2799077377330587924, guid: 5ef993454cd9a43c498e1934542735cb,
         type: 3}
       propertyPath: m_AnchoredPosition.x
+      value: 410
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799077377330587924, guid: 5ef993454cd9a43c498e1934542735cb,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799077377330587924, guid: 5ef993454cd9a43c498e1934542735cb,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799077377330587924, guid: 5ef993454cd9a43c498e1934542735cb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799077377330587924, guid: 5ef993454cd9a43c498e1934542735cb,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799077375630276369, guid: 5ef993454cd9a43c498e1934542735cb,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799077375630276369, guid: 5ef993454cd9a43c498e1934542735cb,
+        type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

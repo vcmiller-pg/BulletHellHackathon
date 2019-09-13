@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,7 +12,7 @@ public class PlayerShip : MonoBehaviour {
     public float damageTakenOnHit = 30;
     public ShipWeapon[] startingWeapons;
 
-    private List<ShipWeapon> weapons;
+    public List<ShipWeapon> weapons { get; private set; }
 
     public int totalCoins { get; private set; }
 
@@ -57,7 +57,11 @@ public class PlayerShip : MonoBehaviour {
         }
     }
 
-    public void AddCoins(int coins) {
-        totalCoins += coins;
+    public void AddCoins(int amount) {
+        totalCoins += amount;
+    }
+
+    public void SpendCoins(int amount) {
+        totalCoins -= amount;
     }
 }
