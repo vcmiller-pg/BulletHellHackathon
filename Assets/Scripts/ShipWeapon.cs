@@ -46,6 +46,7 @@ public class ShipWeapon : Motor<FighterChannels> {
 
     protected override void DoOutput(FighterChannels channels) {
         if (channels.attack1 && shootTimer.canUse && (magazine?.Fire() != false)) {
+            LateUpdate();
             shootTimer.Use();
             shootSound?.PlayAtPoint(transform.position);
 
