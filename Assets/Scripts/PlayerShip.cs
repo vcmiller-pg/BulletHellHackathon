@@ -6,6 +6,7 @@ using SBR;
 
 public class PlayerShip : MonoBehaviour {
     public GameObject explosionPrefab;
+    public GameObject smallExplosionPrefab;
     public GameObject impactVfx;
     public Transform impactSites;
     public AudioParameters impactSound;
@@ -81,5 +82,21 @@ public class PlayerShip : MonoBehaviour {
     public void SaveCoins() {
         savedCoins += totalCoins;
         totalCoins = 0;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            var t = transform.position;
+            t.z += 20.0f;
+            Instantiate(explosionPrefab, t, Quaternion.identity);
+        }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            var t = transform.position;
+            t.z += 20.0f;
+            Instantiate(smallExplosionPrefab, t, Quaternion.identity);
+        }
     }
 }

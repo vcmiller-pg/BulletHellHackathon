@@ -9975,7 +9975,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04f3cb134ceaf124891b03a9664cb42c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionPrefab: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
+  explosionPrefab: {fileID: 100010, guid: 92fb0c39371ad4b3eacfc9d0def872c6, type: 3}
+  smallExplosionPrefab: {fileID: 1078694400030560, guid: 461a7b5da47ea8042a2d92b82d6cd872,
+    type: 3}
   impactVfx: {fileID: 100006, guid: 9c54d07e3bb56407f91859551e8361e3, type: 3}
   impactSites: {fileID: 6434134656651917721}
   impactSound:
