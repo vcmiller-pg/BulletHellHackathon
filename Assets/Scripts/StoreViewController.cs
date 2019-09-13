@@ -23,6 +23,8 @@ public class StoreViewController : MonoBehaviour
 		currentAttackMultiplexerText.text = "Current Attack Multiplexer: x" + UpgradeManager.currentAttackMultiplexer.ToString();
 		float nextLevel = UpgradeManager.currentAttackMultiplexer + UpgradeManager.singleUpgradeAmount;
 		nextLevelText.text = "Next Level: x" + nextLevel.ToString();
+
+		upgradeCost = UpgradeManager.upgradeCost;
 		upgradeCostText.text = "Upgrade Cost: " + UpgradeManager.upgradeCost.ToString();
     }
 
@@ -38,6 +40,7 @@ public class StoreViewController : MonoBehaviour
 		Debug.LogWarning("DidTapUpgrade");
 		if (UpgradeManager.IsUpgradeAffordable()) {
 			PlayerShip.SpendCoins(upgradeCost);
+			UpgradeManager.DoUpgrade();
 		}				
 	}
 }
