@@ -5,7 +5,6 @@ using UnityEngine;
 public class WeaponPickup : Pickup {
     public ShipWeapon weaponObject;
     public bool showMessage;
-    new public string name;
 
     protected override void TakeEffect(PlayerShip ship) {
         ship.AddWeapon(weaponObject);
@@ -14,6 +13,6 @@ public class WeaponPickup : Pickup {
             MessageManager.inst.ShowScreen(1);
         }
 
-        MessageManager.inst.ShowMessage($"Acquired the <color=green>{name}</color>", 3.0f);
+        MessageManager.inst.ShowMessage($"Acquired the <color=green>{weaponObject.displayName}</color>", 3.0f);
     }
 }

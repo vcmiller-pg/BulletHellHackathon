@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4704984920589541924}
   - component: {fileID: 4669523696014739994}
   m_Layer: 9
-  m_Name: SpinShot
+  m_Name: PDC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,10 +46,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   states:
     states: []
-  bulletPrefab: {fileID: 114264827722607182, guid: 0775cfef25a964141841b5c4ff7f8579,
+  displayName: Point-Defense Cannon
+  bulletPrefab: {fileID: 114264827722607182, guid: 3d84257e56b93ef48a32f1d21e465dc8,
     type: 3}
   startCooldown: 0
-  fireRate: 15
+  fireRate: 60
   magazineSize: 0
   magazineReload: 0
   guns:
@@ -69,6 +70,7 @@ MonoBehaviour:
   followRoll: 0
   gunMode: 0
   aimAtTarget: 0
+  damageMultiplier: 1
 --- !u!1 &4710743126394692974
 GameObject:
   m_ObjectHideFlags: 0

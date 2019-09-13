@@ -107,6 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   states:
     states: []
+  displayName: Converging Shot
   bulletPrefab: {fileID: 114264827722607182, guid: ea272f842dab88f43bb8e8052aa5fe4b,
     type: 3}
   startCooldown: 0
@@ -131,3 +132,4 @@ MonoBehaviour:
   followRoll: 0
   gunMode: 2
   aimAtTarget: 0
+  damageMultiplier: 1

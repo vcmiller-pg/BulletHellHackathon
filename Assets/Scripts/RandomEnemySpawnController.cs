@@ -15,12 +15,11 @@ public class RandomEnemySpawnController : MonoBehaviour {
     [System.Serializable]
     public class SpawnableEnemyList : DraggableList<SpawnableEnemy> { }
 
+
+    [Header("Enemy Spawning")]
     [DraggableListDisplay("enemy")]
     public SpawnableEnemyList spawnables;
-    public GameObject[] rewards;
-
     public AnimationCurve difficultyCurve;
-
     public int maxEnemiesOnScreen;
     public float budgetGainMultiplier;
     public float maxBudgetMultiplier;
@@ -30,6 +29,14 @@ public class RandomEnemySpawnController : MonoBehaviour {
     public Rect spawnArea;
     public float spawnCooldown = 0.5f;
 
+    [Header("Round End")]
+    public WeaponPickup pickupTemplate;
+    public ShipWeapon[] possibleRewards;
+    public GameObject alternativeReward;
+    public float budgetGainIncrease = 0.5f;
+    public float maxBudgetIncrease = 0.5f;
+
+    private HashSet<int> alreadyGivenRewards;
     private CooldownTimer spawnTimer;
     private float currentBudget;
     private int enemiesDestroyed;
@@ -37,6 +44,7 @@ public class RandomEnemySpawnController : MonoBehaviour {
     private List<GameObject> spawnedEnemies;
     private List<GameObject> spawnedBossEnemies;
     private int nextEnemyToSpawn;
+    private GameObject endButtons;
 
     private bool spawnedReward;
 
@@ -46,11 +54,12 @@ public class RandomEnemySpawnController : MonoBehaviour {
     private float maxBudget => baseBudget + currentDifficulty * maxBudgetMultiplier;
 
     private void Awake() {
+        alreadyGivenRewards = new HashSet<int>();
         spawnTimer = new CooldownTimer(spawnCooldown);
         spawnedEnemies = new List<GameObject>();
         spawnedBossEnemies = new List<GameObject>();
-        nextEnemyToSpawn = PickNextEnemy();
         currentBudget = baseBudget;
+        endButtons = Tags.FindGameObjectWithTag(Tag.Finish);
 
         if (this.TryGetComponentInChildren(out Renderer renderer)) {
             Bounds b = renderer.bounds;
@@ -58,7 +67,21 @@ public class RandomEnemySpawnController : MonoBehaviour {
         }
     }
 
+    public void Restart() {
+        enemiesDestroyed = 0;
+        enemiesSpawned = 0;
+        spawnedEnemies.Clear();
+        spawnedBossEnemies.Clear();
+        baseBudgetGainRate += budgetGainIncrease;
+        baseBudget += maxBudgetIncrease;
+
+        currentBudget = baseBudget;
+
+        Start();
+    }
+
     private void Start() {
+        endButtons.SetActive(false);
         StartCoroutine(UpdateCrt());
     }
 
@@ -106,11 +129,24 @@ public class RandomEnemySpawnController : MonoBehaviour {
         }
 
         yield return new WaitForSeconds(3);
+
+        Pause.paused = true;
+        endButtons.SetActive(true);
     }
 
     private GameObject SpawnReward() {
         Vector3 location = new Vector3(spawnArea.center.x, 0, spawnArea.center.y);
-        return Instantiate(rewards[Random.Range(0, rewards.Length)], location, Quaternion.identity);
+        if (alreadyGivenRewards.Count < possibleRewards.Length) {
+            WeaponPickup pickup = Instantiate(pickupTemplate, location, Quaternion.identity);
+            int sel = -1;
+            do {
+                sel = Random.Range(0, possibleRewards.Length);
+            } while (!alreadyGivenRewards.Add(sel));
+            pickup.weaponObject = possibleRewards[sel];
+            return pickup.gameObject;
+        } else {
+            return Instantiate(alternativeReward, location, Quaternion.identity);
+        }
     }
 
     private void SpawnNextEnemy() {

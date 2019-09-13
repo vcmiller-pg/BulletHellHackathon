@@ -1,0 +1,213 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1512922944056632307
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1512922944056632317}
+  - component: {fileID: 1512922944056632316}
+  m_Layer: 0
+  m_Name: EnemySpawnController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1512922944056632317
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512922944056632307}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 55.7}
+  m_LocalScale: {x: 39.05, y: 1, z: 31.6}
+  m_Children:
+  - {fileID: 1512922944328952039}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1512922944056632316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512922944056632307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba898d3bb2b084c479e844be8ed166be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnables:
+    items:
+    - enemy: {fileID: 1040345369936300, guid: 85ade9d186ed99c47b9a17f080bda5ba, type: 3}
+      cost: 0.5
+      isBoss: 0
+    - enemy: {fileID: 1258949851692702, guid: 0ac482cea0d96c24ba0cdb00c6ab6c11, type: 3}
+      cost: 1
+      isBoss: 0
+    - enemy: {fileID: 1258949851692702, guid: 56a7ae63e2c181a42b921a20b9efe3f3, type: 3}
+      cost: 1
+      isBoss: 0
+    - enemy: {fileID: 1755400203054314, guid: 7e27c36d81a342644b79cce84cd0d8d2, type: 3}
+      cost: 4
+      isBoss: 1
+    - enemy: {fileID: 1061115453743626, guid: f6bc15e42d11fd74eb2ce8f462cdd35b, type: 3}
+      cost: 5
+      isBoss: 1
+    - enemy: {fileID: 1491294229196398, guid: 1916329f4f27b07459ea07d62ebee03d, type: 3}
+      cost: 5
+      isBoss: 1
+    - enemy: {fileID: 1422999148645566, guid: 193f828472eee364e9893e7caf3ae444, type: 3}
+      cost: 7
+      isBoss: 1
+    - enemy: {fileID: 1208761207106912, guid: 8b8f838ab727fb24387a449efc60c79a, type: 3}
+      cost: 8
+      isBoss: 1
+  difficultyCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  maxEnemiesOnScreen: 3
+  budgetGainMultiplier: 0.5
+  maxBudgetMultiplier: 5
+  totalEnemyCount: 50
+  baseBudget: 1
+  baseBudgetGainRate: 0.5
+  spawnArea:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  spawnCooldown: 0.5
+  pickupTemplate: {fileID: 114924699270030864, guid: 7e7a7bdcb8c876d4eb036d2f9b8de560,
+    type: 3}
+  possibleRewards:
+  - {fileID: 6801347526357984125, guid: 69fde220d9ce8584996396331eabe20f, type: 3}
+  - {fileID: 799635158325086566, guid: 8d24b26babcb32a4e95e3b4156e2ae98, type: 3}
+  - {fileID: 4669523696014739994, guid: 1eae51f05d2e1234fa2231d99f20742f, type: 3}
+  - {fileID: 4669523696014739994, guid: f1b1e7d34b7e93a4d831cd1a6d33c19f, type: 3}
+  - {fileID: 2024206328167166366, guid: 973fa6ff5c5094a4ca0877306fc8b769, type: 3}
+  alternativeReward: {fileID: 1574104082513504, guid: d020ec5b8c77bd5438c7eb8e3ee1b81d,
+    type: 3}
+  budgetGainIncrease: 0.25
+  maxBudgetIncrease: 2.5
+--- !u!1 &1512922944328952038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1512922944328952039}
+  - component: {fileID: 1512922944328952035}
+  - component: {fileID: 1512922944328952034}
+  - component: {fileID: 1512922944328952032}
+  m_Layer: 0
+  m_Name: EnemySpawnBounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1512922944328952039
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512922944328952038}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1512922944056632317}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &1512922944328952035
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512922944328952038}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1512922944328952034
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512922944328952038}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!114 &1512922944328952032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512922944328952038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccdbb71c90ca60442a483dd1b2d94bbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hideInGame: 1

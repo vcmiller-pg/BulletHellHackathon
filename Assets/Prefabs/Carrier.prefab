@@ -252,7 +252,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 114055955780941202, guid: e3e42851dc8d0544cb094b7acf9dbd4a,
     type: 3}
   startCooldown: 2
-  fireRate: 0.5
+  fireRate: 1
   magazineSize: 0
   magazineReload: 0
   guns:
@@ -272,6 +272,7 @@ MonoBehaviour:
   followRoll: 1
   gunMode: 0
   aimAtTarget: 1
+  damageMultiplier: 1
 --- !u!114 &114068249374915056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,7 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7560336690c93094d97b459fc78d488d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1000
+  maxHealth: 750
   hitInvuln: 0
   healthRegenRate: 0
   healthRegenDelay: 0

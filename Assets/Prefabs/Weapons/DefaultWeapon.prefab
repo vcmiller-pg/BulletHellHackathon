@@ -77,6 +77,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   states:
     states: []
+  displayName: Gatling Gun
   bulletPrefab: {fileID: 114264827722607182, guid: 0775cfef25a964141841b5c4ff7f8579,
     type: 3}
   startCooldown: 0
@@ -101,6 +102,7 @@ MonoBehaviour:
   followRoll: 0
   gunMode: 0
   aimAtTarget: 0
+  damageMultiplier: 1
 --- !u!1 &4710743126394692974
 GameObject:
   m_ObjectHideFlags: 0

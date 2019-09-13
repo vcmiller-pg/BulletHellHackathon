@@ -34,7 +34,7 @@ public class LightningWeapon : ShipWeapon {
             if (didHit) {
                 hitDistance = hit.distance;
 
-                hit.collider.Damage(damagePerSecond * Time.deltaTime);
+                hit.collider.Damage(damagePerSecond * Time.deltaTime * damageMultiplier);
             }
 
             SetDistance(hitDistance);
@@ -68,7 +68,7 @@ public class LightningWeapon : ShipWeapon {
                         }
 
                         if (chainHitObject) {
-                            chainHitObject.Damage(damagePerSecond * Time.deltaTime);
+                            chainHitObject.Damage(damagePerSecond * Time.deltaTime * damageMultiplier);
                             currentChain[i + 1] = chainHitObject;
                             chain[i].gameObject.SetActive(true);
                             chain[i].transform.position = hitPos;

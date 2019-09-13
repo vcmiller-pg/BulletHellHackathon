@@ -6,6 +6,8 @@ public class ShipWeapon : Motor<FighterChannels> {
     public CooldownTimer shootTimer { get; private set; }
     public Magazine magazine { get; private set; }
 
+    public string displayName;
+
     public Projectile bulletPrefab;
     public float startCooldown = 0;
     public float fireRate = 10;

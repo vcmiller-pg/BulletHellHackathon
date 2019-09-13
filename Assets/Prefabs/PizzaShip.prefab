@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 114257800793144882}
   - component: {fileID: 114201541883431568}
   - component: {fileID: 114234703885538612}
-  - component: {fileID: 114469995626653728}
   - component: {fileID: 5665390299582535322}
   - component: {fileID: -6986147799761301356}
   m_Layer: 10
@@ -235,6 +234,7 @@ MonoBehaviour:
   followRoll: 1
   gunMode: 1
   aimAtTarget: 1
+  damageMultiplier: 1
 --- !u!114 &114257800793144882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,6 +272,7 @@ MonoBehaviour:
   followRoll: 1
   gunMode: 0
   aimAtTarget: 0
+  damageMultiplier: 1
 --- !u!114 &114201541883431568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,6 +311,7 @@ MonoBehaviour:
   followRoll: 1
   gunMode: 2
   aimAtTarget: 1
+  damageMultiplier: 1
 --- !u!114 &114234703885538612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,23 +337,6 @@ MonoBehaviour:
   mode: 1
   atSelfLocation: 0
   parentToSelf: 0
---- !u!114 &114469995626653728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1208761207106912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0764206e05e155540b3d61a4d1833bbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  items:
-  - {fileID: 1674838940431816, guid: 247af3835374c0e4abb26f5d397ddec9, type: 3}
-  spawnChance: 1
-  minCoinsDrop: 1
-  maxCoinsDrop: 1
 --- !u!114 &5665390299582535322
 MonoBehaviour:
   m_ObjectHideFlags: 0
