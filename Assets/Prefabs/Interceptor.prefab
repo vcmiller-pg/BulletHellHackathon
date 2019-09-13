@@ -149,9 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   states:
     states: []
-  velocity: {x: 0, y: 0, z: 0}
   maxSpeed: 50
-  acceleration: 750
   rollAngle: 30
   rollSpeed: 90
   useBounds: 0
@@ -205,6 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   states:
     states: []
+  displayName: 
   bulletPrefab: {fileID: 114578397476529566, guid: 843b215f841f3be40918f29f65e70462,
     type: 3}
   startCooldown: 0
@@ -228,6 +227,7 @@ MonoBehaviour:
   followRoll: 1
   gunMode: 0
   aimAtTarget: 0
+  damageMultiplier: 1
 --- !u!114 &-1365737797061125458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,6 +259,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - {fileID: 1574104082513504, guid: d020ec5b8c77bd5438c7eb8e3ee1b81d, type: 3}
-  spawnChance: 0.03
+  - {fileID: 1574104082513504, guid: ef67016d39fe99e4c9ebc6158ce2471f, type: 3}
+  - {fileID: 1574104082513504, guid: bf7bb059eb577ea429b78c8b53ec9db8, type: 3}
+  spawnChance: 0.02
   minCoinsDrop: 1
   maxCoinsDrop: 1

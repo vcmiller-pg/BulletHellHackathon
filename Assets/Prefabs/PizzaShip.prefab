@@ -136,9 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   states:
     states: []
-  velocity: {x: 0, y: 0, z: 0}
   maxSpeed: 5
-  acceleration: 5
   rollAngle: 30
   rollSpeed: 90
   useBounds: 0
@@ -210,6 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   states:
     states: []
+  displayName: 
   bulletPrefab: {fileID: 114867418555660440, guid: 3feed7102b101cf40865ce7d5efce526,
     type: 3}
   startCooldown: 10
@@ -249,6 +248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   states:
     states: []
+  displayName: 
   bulletPrefab: {fileID: 114930864244718276, guid: 4220d8ae7982e0a43b1a137ed84f6e56,
     type: 3}
   startCooldown: 5
@@ -287,6 +287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   states:
     states: []
+  displayName: 
   bulletPrefab: {fileID: 114578397476529566, guid: 843b215f841f3be40918f29f65e70462,
     type: 3}
   startCooldown: 2
@@ -368,6 +369,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - {fileID: 1574104082513504, guid: d020ec5b8c77bd5438c7eb8e3ee1b81d, type: 3}
+  - {fileID: 1574104082513504, guid: ef67016d39fe99e4c9ebc6158ce2471f, type: 3}
+  - {fileID: 1574104082513504, guid: bf7bb059eb577ea429b78c8b53ec9db8, type: 3}
   spawnChance: 0.5
   minCoinsDrop: 1
   maxCoinsDrop: 1

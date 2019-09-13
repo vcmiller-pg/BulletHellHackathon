@@ -224,9 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   states:
     states: []
-  velocity: {x: 0, y: 0, z: 0}
   maxSpeed: 10
-  acceleration: 100
   rollAngle: 30
   rollSpeed: 90
   useBounds: 0
@@ -335,6 +333,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - {fileID: 1574104082513504, guid: d020ec5b8c77bd5438c7eb8e3ee1b81d, type: 3}
+  - {fileID: 1574104082513504, guid: ef67016d39fe99e4c9ebc6158ce2471f, type: 3}
+  - {fileID: 1574104082513504, guid: bf7bb059eb577ea429b78c8b53ec9db8, type: 3}
   spawnChance: 0.2
   minCoinsDrop: 1
   maxCoinsDrop: 1
