@@ -249,6 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   states:
     states: []
+  displayName: 
   bulletPrefab: {fileID: 114055955780941202, guid: e3e42851dc8d0544cb094b7acf9dbd4a,
     type: 3}
   startCooldown: 2
@@ -285,8 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c856daac72fa747bb45ce5a6b54546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionPrefab: {fileID: 1078694400030560, guid: 461a7b5da47ea8042a2d92b82d6cd872,
-    type: 3}
+  explosionPrefab: {fileID: 100010, guid: 92fb0c39371ad4b3eacfc9d0def872c6, type: 3}
 --- !u!114 &114363957272394070
 MonoBehaviour:
   m_ObjectHideFlags: 0
