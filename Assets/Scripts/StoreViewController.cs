@@ -33,7 +33,7 @@ public class StoreViewController : MonoBehaviour
         currentHealthMultiplierText.text = "Current Health Multiplier: x" + UpgradeManager.currentHealthMultiplier.ToString();
         nextLevel = UpgradeManager.currentHealthMultiplier + UpgradeManager.singleUpgradeAmount;
         nextHealthLevelText.text = "Next Level: x" + nextLevel.ToString();
-        attackUpgradeCostText.text = "Upgrade Cost: " + UpgradeManager.healthUpgradeCost.ToString();
+        healthUpgradeCostText.text = "Upgrade Cost: " + UpgradeManager.healthUpgradeCost.ToString();
     }
 
 	public void DidTapResume()

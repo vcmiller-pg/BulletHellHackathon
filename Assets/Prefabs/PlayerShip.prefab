@@ -9721,6 +9721,7 @@ GameObject:
   - component: {fileID: 82000874735129664}
   - component: {fileID: 114275553876775946}
   - component: {fileID: 114885359086024200}
+  - component: {fileID: 8388245094121823763}
   m_Layer: 9
   m_Name: PlayerShip
   m_TagString: Player
@@ -9958,7 +9959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7560336690c93094d97b459fc78d488d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 500
+  maxHealth: 300
   hitInvuln: 1
   healthRegenRate: 0
   healthRegenDelay: 0
@@ -10004,6 +10005,18 @@ MonoBehaviour:
   damageTakenOnHit: 30
   startingWeapons:
   - {fileID: 4669523696014739994, guid: 6caab6a9e93adf747b65396a42a8988a, type: 3}
+--- !u!114 &8388245094121823763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077209340148092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4a134f52ae2d4866b754809c48a1568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1254371688966370
 GameObject:
   m_ObjectHideFlags: 0

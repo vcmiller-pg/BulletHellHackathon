@@ -7,8 +7,8 @@ public class UpgradeManager : MonoBehaviour
 {
     public static float currentAttackMultiplier { get; private set; } = 1;
     public static float currentHealthMultiplier { get; private set; } = 1;
-    public static int damageUpgradeCost => Mathf.RoundToInt(200 * currentAttackMultiplier);
-    public static int healthUpgradeCost => Mathf.RoundToInt(200 * currentHealthMultiplier);
+    public static int damageUpgradeCost => Mathf.RoundToInt(400 * currentAttackMultiplier);
+    public static int healthUpgradeCost => Mathf.RoundToInt(400 * currentHealthMultiplier);
 	public static float singleUpgradeAmount = 0.2f;
 
     private static float maxAttackMultiplier = 3.0f;
@@ -22,7 +22,9 @@ public class UpgradeManager : MonoBehaviour
 		playerShip = UnityEngine.Object.FindObjectOfType<PlayerShip>();
 		ApplyAllMultipliers();
 		currentAttackMultiplier = Math.Max(1, currentAttackMultiplier);
-	}
+        print($"Health: {currentHealthMultiplier}, damage: {currentAttackMultiplier}");
+
+    }
 
     public static void UpgradeAttack()
     {
@@ -35,7 +37,9 @@ public class UpgradeManager : MonoBehaviour
 
     void ApplyAllMultipliers() {
         ApplyWeaponMultipliers();
-        playerShip.GetComponent<Health>().maxHealth *= maxHealthMultiplier;
+        var h = playerShip.GetComponent<Health>();
+        h.maxHealth *= currentHealthMultiplier;
+        h.Heal(h.maxHealth);
     }
 
     void ApplyWeaponMultipliers() {
