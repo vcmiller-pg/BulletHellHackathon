@@ -256,6 +256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   states:
     states: []
+  displayName: 
   bulletPrefab: {fileID: 114055955780941202, guid: e3e42851dc8d0544cb094b7acf9dbd4a,
     type: 3}
   startCooldown: 4
@@ -280,6 +281,7 @@ MonoBehaviour:
   followRoll: 1
   gunMode: 0
   aimAtTarget: 1
+  damageMultiplier: 1
 --- !u!114 &114137087903268836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,6 +296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   states:
     states: []
+  displayName: 
   bulletPrefab: {fileID: 114344421604783454, guid: 3e7bcba7d949beb4cb81034558960cc7,
     type: 3}
   startCooldown: 0
@@ -317,6 +320,7 @@ MonoBehaviour:
   followRoll: 1
   gunMode: 0
   aimAtTarget: 1
+  damageMultiplier: 1
 --- !u!114 &114449022030979294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,7 +350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c856daac72fa747bb45ce5a6b54546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionPrefab: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
+  explosionPrefab: {fileID: 100010, guid: 92fb0c39371ad4b3eacfc9d0def872c6, type: 3}
 --- !u!114 &8821363666625661124
 MonoBehaviour:
   m_ObjectHideFlags: 0
