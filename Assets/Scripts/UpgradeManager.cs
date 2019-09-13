@@ -1,43 +1,54 @@
 using UnityEngine;
+using System;
 using System.Collections;
 
 public class UpgradeManager : MonoBehaviour
 {    
-    private float attackMultiplexer = 1.0f;
-	private float maxAttackMultiplexer = 3.0f;
+    public static float currentAttackMultiplexer { get; private set; }
+	public static int upgradeCost = 200;
+	public static float singleUpgradeAmount = 0.2f;
+
+	private static float maxAttackMultiplexer = 3.0f;	
 	private PlayerShip playerShip;
-    private int upgradeCost = 200;
+
+
+	static UpgradeManager()
+	{
+		currentAttackMultiplexer = 1.0f;
+	}
 
     // Use this for initialization
     void Start()
     {
-		playerShip = Object.FindObjectOfType<PlayerShip>();
-    }
+		playerShip = UnityEngine.Object.FindObjectOfType<PlayerShip>();
+		UpdateAllWeaponsMultiplexers();
+		currentAttackMultiplexer = Math.Max(1, currentAttackMultiplexer);
+	}
 
-    void DoUpgrade(float amount)
+    public static void DoUpgrade()
     {
-        attackMultiplexer += amount;
-        UpdateGameValues();
-    }
+		currentAttackMultiplexer += singleUpgradeAmount;
+		MessageManager.inst.ShowMessage($"Attack multiplexer increased to {currentAttackMultiplexer}", 3.0f);
+	}
 
-    void UpdateGameValues() {
+    void UpdateAllWeaponsMultiplexers() {
         foreach (ShipWeapon weapon in playerShip.weapons) {
-            weapon.damageMultiplier = attackMultiplexer;
+            weapon.damageMultiplier = currentAttackMultiplexer;
         }
     }
 
     void ResetUpgradeAmounts()
     {
-        attackMultiplexer = 1.0f;
+		currentAttackMultiplexer = 1.0f;
     }
+
+	public static bool IsUpgradeAffordable()
+	{
+		return PlayerShip.savedCoins >= upgradeCost && currentAttackMultiplexer < maxAttackMultiplexer;
+	}
 
     // Update is called once per frame
     void Update()
     {
-        if (playerShip.totalCoins >= upgradeCost && attackMultiplexer < maxAttackMultiplexer) {
-            DoUpgrade(0.2f);
-            playerShip.SpendCoins(upgradeCost);
-            MessageManager.inst.ShowMessage($"Attack multiplexer increased to {attackMultiplexer}", 3.0f);
-        }
     }
 }

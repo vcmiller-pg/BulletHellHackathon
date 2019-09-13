@@ -20,13 +20,15 @@ public class PlayerShip : MonoBehaviour {
 
     public int totalCoins { get; private set; }
 
+	public void Start() {
+		totalCoins = 0;
+	}
+
     void Awake() {
         weapons = new List<ShipWeapon>();
         foreach (var weapon in startingWeapons) {
             AddWeapon(weapon);
         }
-
-        totalCoins = 0;
     }
 
     public void AddWeapon(ShipWeapon prefab) {
@@ -72,7 +74,7 @@ public class PlayerShip : MonoBehaviour {
         totalCoins += amount;
     }
 
-    public void SpendCoins(int amount) {
+    public static void SpendCoins(int amount) {
         savedCoins -= amount;
     }
 

@@ -31205,7 +31205,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4a134f52ae2d4866b754809c48a1568, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackMultiplexer: 0
 --- !u!4 &1363413247 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4347091503774834, guid: 2d97ab841eb2e2b4088c6ad06c3ef5e3,
