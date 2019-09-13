@@ -97,6 +97,7 @@ public class ShipWeapon : Motor<FighterChannels> {
         if (!followRoll) {
             Vector3 e = transform.eulerAngles;
             e.z = 0;
+            e.x = 0;
             transform.eulerAngles = e;
         }
     }

@@ -172,7 +172,7 @@ MonoBehaviour:
   hitMask:
     serializedVersion: 2
     m_Bits: 3072
-  offset: 0
+  offset: 5
   radius: 0
   maxHits: 8
 --- !u!114 &114883874018964836

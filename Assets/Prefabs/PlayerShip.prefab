@@ -392,7 +392,6 @@ MonoBehaviour:
   damageTakenOnHit: 30
   startingWeapons:
   - {fileID: 4669523696014739994, guid: 6caab6a9e93adf747b65396a42a8988a, type: 3}
-  - {fileID: 4669523696014739994, guid: f1b1e7d34b7e93a4d831cd1a6d33c19f, type: 3}
 --- !u!1 &1254371688966370
 GameObject:
   m_ObjectHideFlags: 0
