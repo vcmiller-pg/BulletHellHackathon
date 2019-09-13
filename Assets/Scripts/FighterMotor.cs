@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using SBR;
+using System;
 
 public class FighterMotor : Motor<FighterChannels> {
     new public Rigidbody rigidbody { get; private set; }
 
-    [HideInInspector]
-    public Vector3 velocity;
+    private Vector3 velocity;
 
     public float maxSpeed = 5;
-    public float acceleration = 5;
 
     public float rollAngle = 30;
     public float rollSpeed = 90;
@@ -35,7 +34,7 @@ public class FighterMotor : Motor<FighterChannels> {
 
     protected override void DoOutput(FighterChannels channels) {
         Vector3 move = channels.movement;
-        velocity = Vector3.MoveTowards(velocity, move * maxSpeed, Time.deltaTime * acceleration);
+        velocity = move * maxSpeed;
         Vector3 e = transform.eulerAngles;
 
         if (rotationMode == RotationMode.StrafeRoll) {
