@@ -14,6 +14,8 @@ public class PlayerShip : MonoBehaviour {
     public float damageTakenOnHit = 30;
     public ShipWeapon[] startingWeapons;
 
+    public static int savedCoins { get; private set; }
+
     public List<ShipWeapon> weapons { get; private set; }
 
     public int totalCoins { get; private set; }
@@ -71,6 +73,11 @@ public class PlayerShip : MonoBehaviour {
     }
 
     public void SpendCoins(int amount) {
-        totalCoins -= amount;
+        savedCoins -= amount;
+    }
+
+    public void SaveCoins() {
+        savedCoins += totalCoins;
+        totalCoins = 0;
     }
 }

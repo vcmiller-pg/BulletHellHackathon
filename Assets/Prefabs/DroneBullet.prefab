@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 135194067448270770}
   - component: {fileID: 212260636478299982}
   - component: {fileID: 643559744927712110}
+  - component: {fileID: -9186776050401005256}
+  - component: {fileID: -2664783568535306674}
   m_Layer: 11
   m_Name: DroneBullet
   m_TagString: Untagged
@@ -169,4 +171,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   axis: {x: 0, y: 0, z: 1}
   speed: 360
+  speedDelta: 90
   space: 1
+--- !u!114 &-9186776050401005256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943606207235984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7560336690c93094d97b459fc78d488d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 1
+  hitInvuln: 0
+  healthRegenRate: 0
+  healthRegenDelay: 0
+  allowRevival: 0
+--- !u!114 &-2664783568535306674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943606207235984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a6423d9635f7648a2161734bcf8ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

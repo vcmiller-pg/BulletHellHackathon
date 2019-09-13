@@ -12,7 +12,8 @@ public class EndButtons : MonoBehaviour {
     }
 
     public void BackToBase() {
-        SceneManager.LoadScene("ShopScene");
+        FindObjectOfType<PlayerShip>().SaveCoins();
         Pause.paused = false;
+        SceneManager.LoadScene("SceneStore");
     }
 }
