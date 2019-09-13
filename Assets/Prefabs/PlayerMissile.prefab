@@ -56,7 +56,8 @@ MonoBehaviour:
   linger: 0
   gravity: 0
   destroyOnHit: 1
-  impactPrefab: {fileID: 0}
+  impactPrefab: {fileID: 1078694400030560, guid: 19b385d4487bf489ab8294dbf4368dbe,
+    type: 3}
   impactSound:
     clips:
     - {fileID: 8300000, guid: 31db0ea69267ed94a8b5da72e8918c64, type: 3}
