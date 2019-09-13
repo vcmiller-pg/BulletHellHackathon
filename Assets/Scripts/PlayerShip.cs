@@ -4,40 +4,25 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using SBR;
 
-public class PlayerShip : Motor<FighterChannels> {
+public class PlayerShip : MonoBehaviour {
     public GameObject explosionPrefab;
     public AudioParameters impactSound;
     public AudioParameters deathSound;
     public float damageDealtOnHit = 100;
     public float damageTakenOnHit = 30;
+    public ShipWeapon[] startingWeapons;
 
     private List<ShipWeapon> weapons;
-    private int curWeapon;
 
     public int totalCoins { get; private set; }
 
-    protected override void Awake() {
-        base.Awake();
-        
-        weapons = new List<ShipWeapon>(GetComponentsInChildren<ShipWeapon>());
-        for (int i = 1; i < weapons.Count; i++) {
-            weapons[i].enabled = false;
+    void Awake() {
+        weapons = new List<ShipWeapon>();
+        foreach (var weapon in startingWeapons) {
+            AddWeapon(weapon);
         }
 
         totalCoins = 0;
-    }
-
-    protected override void DoOutput(FighterChannels channels) {
-        int wep = curWeapon + channels.weaponSwitch;
-        if (wep < 0) {
-            wep = weapons.Count - 1;
-        } else if (wep >= weapons.Count) {
-            wep = 0;
-        }
-
-        if (wep != curWeapon) {
-            SetCurrentWeapon(wep);
-        }
     }
 
     public void AddWeapon(ShipWeapon prefab) {
@@ -48,13 +33,6 @@ public class PlayerShip : Motor<FighterChannels> {
         weapon.RefreshControllers();
 
         weapons.Add(weapon);
-        SetCurrentWeapon(weapons.Count - 1);
-    }
-
-    public void SetCurrentWeapon(int index) {
-        weapons[curWeapon].enabled = false;
-        weapons[index].enabled = true;
-        curWeapon = index;
     }
 
     private void OnDamage(Damage dmg) {

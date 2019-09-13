@@ -97,6 +97,8 @@ GameObject:
   - component: {fileID: 114137087903268836}
   - component: {fileID: 114449022030979294}
   - component: {fileID: 114289612207059806}
+  - component: {fileID: 8821363666625661124}
+  - component: {fileID: 8172394546322957229}
   m_Layer: 10
   m_Name: Destroyer
   m_TagString: Enemy
@@ -345,6 +347,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
+--- !u!114 &8821363666625661124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422999148645566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0764206e05e155540b3d61a4d1833bbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 1574104082513504, guid: 2566a0dc52469494487e0a8785051f0e, type: 3}
+  spawnChance: 1
+  minCoinsDrop: 20
+  maxCoinsDrop: 30
+--- !u!114 &8172394546322957229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422999148645566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0764206e05e155540b3d61a4d1833bbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 1574104082513504, guid: d020ec5b8c77bd5438c7eb8e3ee1b81d, type: 3}
+  spawnChance: 0.3
+  minCoinsDrop: 1
+  maxCoinsDrop: 1
 --- !u!1 &1434678081234668
 GameObject:
   m_ObjectHideFlags: 0

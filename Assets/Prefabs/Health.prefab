@@ -118,4 +118,4 @@ MonoBehaviour:
     cooldownId: 
   velocity: {x: 0, y: 0, z: -10}
   killZ: -20
-  healing: 50
+  healing: 100

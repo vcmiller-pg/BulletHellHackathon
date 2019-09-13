@@ -96,6 +96,8 @@ GameObject:
   - component: {fileID: 114253775991565936}
   - component: {fileID: 114068249374915056}
   - component: {fileID: 114363957272394070}
+  - component: {fileID: -1758540304952946415}
+  - component: {fileID: 6078390053758474629}
   m_Layer: 10
   m_Name: Carrier
   m_TagString: Enemy
@@ -301,3 +303,37 @@ MonoBehaviour:
   healthRegenRate: 0
   healthRegenDelay: 0
   allowRevival: 1
+--- !u!114 &-1758540304952946415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755400203054314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0764206e05e155540b3d61a4d1833bbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 1574104082513504, guid: 2566a0dc52469494487e0a8785051f0e, type: 3}
+  spawnChance: 1
+  minCoinsDrop: 5
+  maxCoinsDrop: 10
+--- !u!114 &6078390053758474629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755400203054314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0764206e05e155540b3d61a4d1833bbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 1574104082513504, guid: d020ec5b8c77bd5438c7eb8e3ee1b81d, type: 3}
+  spawnChance: 0.2
+  minCoinsDrop: 1
+  maxCoinsDrop: 1

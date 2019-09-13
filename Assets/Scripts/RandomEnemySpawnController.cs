@@ -17,6 +17,7 @@ public class RandomEnemySpawnController : MonoBehaviour {
 
     [DraggableListDisplay("enemy")]
     public SpawnableEnemyList spawnables;
+    public GameObject[] rewards;
 
     public AnimationCurve difficultyCurve;
 
@@ -32,9 +33,12 @@ public class RandomEnemySpawnController : MonoBehaviour {
     private CooldownTimer spawnTimer;
     private float currentBudget;
     private int enemiesDestroyed;
+    private int enemiesSpawned;
     private List<GameObject> spawnedEnemies;
     private List<GameObject> spawnedBossEnemies;
     private int nextEnemyToSpawn;
+
+    private bool spawnedReward;
 
     private float progress => (float)enemiesDestroyed / (float)totalEnemyCount;
     private float currentDifficulty => difficultyCurve.Evaluate(progress);
@@ -54,6 +58,10 @@ public class RandomEnemySpawnController : MonoBehaviour {
         }
     }
 
+    private void Start() {
+        StartCoroutine(UpdateCrt());
+    }
+
     private int PickNextEnemy() {
         int numOptions = 1;
 
@@ -71,23 +79,45 @@ public class RandomEnemySpawnController : MonoBehaviour {
     private void Update() {
         currentBudget = Mathf.Clamp(currentBudget + budgetGainRate * Time.deltaTime, 0, maxBudget);
 
-        if (spawnTimer.Use()) {
-            nextEnemyToSpawn = PickNextEnemy();
-            if (currentBudget >= spawnables[nextEnemyToSpawn].cost && spawnedEnemies.Count < maxEnemiesOnScreen) {
-                SpawnNextEnemy();
-                nextEnemyToSpawn = PickNextEnemy();
-            }
-        }
-
         enemiesDestroyed += spawnedEnemies.Count(e => !e) + spawnedBossEnemies.Count(e => !e);
         spawnedEnemies.RemoveAll(e => !e);
         spawnedBossEnemies.RemoveAll(e => !e);
+    }
+
+    private IEnumerator UpdateCrt() {
+        while (enemiesSpawned < totalEnemyCount) {
+            if (enemiesSpawned < totalEnemyCount && spawnTimer.Use()) {
+                nextEnemyToSpawn = PickNextEnemy();
+                if (currentBudget >= spawnables[nextEnemyToSpawn].cost && spawnedEnemies.Count < maxEnemiesOnScreen) {
+                    SpawnNextEnemy();
+                    nextEnemyToSpawn = PickNextEnemy();
+                }
+            }
+            yield return null;
+        }
+
+        while (enemiesDestroyed < totalEnemyCount) {
+            yield return null;
+        }
+
+        GameObject reward = SpawnReward();
+        while (reward) {
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(3);
+    }
+
+    private GameObject SpawnReward() {
+        Vector3 location = new Vector3(spawnArea.center.x, 0, spawnArea.center.y);
+        return Instantiate(rewards[Random.Range(0, rewards.Length)], location, Quaternion.identity);
     }
 
     private void SpawnNextEnemy() {
         Vector3 pos = new Vector3(Random.Range(spawnArea.xMin, spawnArea.xMax), 0, Random.Range(spawnArea.yMin, spawnArea.yMax));
         GameObject newEnemy = Instantiate(spawnables[nextEnemyToSpawn].enemy, pos, spawnables[nextEnemyToSpawn].enemy.transform.rotation);
         currentBudget -= spawnables[nextEnemyToSpawn].cost;
+        enemiesSpawned++;
 
         if (spawnables[nextEnemyToSpawn].isBoss) {
             spawnedBossEnemies.Add(newEnemy);

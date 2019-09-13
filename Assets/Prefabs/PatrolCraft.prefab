@@ -19,6 +19,8 @@ GameObject:
   - component: {fileID: 114474316362868782}
   - component: {fileID: 114493031198248856}
   - component: {fileID: 114957759441040200}
+  - component: {fileID: 2434919636338501193}
+  - component: {fileID: 3772428738669343742}
   m_Layer: 10
   m_Name: PatrolCraft
   m_TagString: Enemy
@@ -248,6 +250,40 @@ MonoBehaviour:
   mode: 2
   atSelfLocation: 0
   parentToSelf: 0
+--- !u!114 &2434919636338501193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061115453743626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0764206e05e155540b3d61a4d1833bbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 1574104082513504, guid: 2566a0dc52469494487e0a8785051f0e, type: 3}
+  spawnChance: 1
+  minCoinsDrop: 10
+  maxCoinsDrop: 20
+--- !u!114 &3772428738669343742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061115453743626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0764206e05e155540b3d61a4d1833bbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 1574104082513504, guid: d020ec5b8c77bd5438c7eb8e3ee1b81d, type: 3}
+  spawnChance: 0.2
+  minCoinsDrop: 1
+  maxCoinsDrop: 1
 --- !u!1 &1460358151040484
 GameObject:
   m_ObjectHideFlags: 0
