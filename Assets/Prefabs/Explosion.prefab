@@ -248,8 +248,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 40
-      minScalar: 20
+      scalar: 10
+      minScalar: 5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5026,7 +5026,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 600
+      scalar: 150
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -9587,12 +9587,12 @@ PrefabInstance:
     - target: {fileID: 6184876378319570870, guid: 72e32dd99f6874b5790cf25483875aa3,
         type: 3}
       propertyPath: m_Parameters.m_GravityCurve.scalar
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6184876378319570870, guid: 72e32dd99f6874b5790cf25483875aa3,
         type: 3}
       propertyPath: m_Parameters.m_EndRange
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72e32dd99f6874b5790cf25483875aa3, type: 3}
